@@ -3,7 +3,6 @@ package guru.springframework.springSwebapp.domain;
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
-
 @Entity
 public class Author {
     @Id
@@ -54,16 +53,6 @@ public class Author {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", books=" + books +
-                '}';
     }
 
     @Override
