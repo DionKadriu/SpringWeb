@@ -1,6 +1,7 @@
 package guru.springframework.springSwebapp.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 @Entity
 public class Book {
@@ -10,7 +11,8 @@ public class Book {
     private String title;
     private String isbn;
     @ManyToMany
-    @JoinTable(name = "author_book",joinColumns = @JoinColumn("book_id"),inverseJoinColumns = @JoinColumn("author_id"))
+    @JoinTable(name = "author_book",joinColumns = @JoinColumn("book_id"),
+            inverseJoinColumns = @JoinColumn("author_id"))
     private Set<Author> author;
 
     public Book() {
@@ -52,5 +54,28 @@ public class Book {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", author=" + author +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
