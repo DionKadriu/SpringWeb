@@ -9,7 +9,7 @@ import guru.springframework.springSwebapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-@Component // Spring manage component
+@Component //Spring manage component
 public class BootStrapData implements CommandLineRunner {
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
